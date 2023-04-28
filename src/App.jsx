@@ -1,4 +1,3 @@
-import React from "react"
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header"
 import Cart from "./pages/Cart"
@@ -6,11 +5,12 @@ import Photos from "./pages/Photos"
 import "./App.css"
 
 
-function App() {    
+function App() {  
+   
     return (
      
+
         <div className="App">
-          
         <Router>
            <Header/>
         <Routes>
@@ -19,7 +19,6 @@ function App() {
         <Route path="/cart" element={ <Cart />}/>
                    
         
-    
         </Routes>
         </Router>
         </div>
