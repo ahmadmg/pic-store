@@ -9,9 +9,9 @@ function App() {
    
     return (
      
-
-        <div className="App">
         <Router>
+        <div className="App">
+       
            <Header/>
         <Routes>
         
@@ -20,9 +20,9 @@ function App() {
                    
         
         </Routes>
-        </Router>
+       
         </div>
-        
+        </Router>
     )
 }
 
