@@ -3,8 +3,8 @@ import React, {useState, useEffect} from "react"
 const Context = React.createContext()
 
 function ContextProvider({children}) {
-    
     const [allPhotos, setAllPhotos] = useState([])
+    const [cartItems, setCartItems] = useState([])
     
     const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
     useEffect(() => {
@@ -12,6 +12,7 @@ function ContextProvider({children}) {
             .then(res => res.json())
             .then(data => setAllPhotos(data))
     }, [])
+    
     function toggleFavorite(id) {
         const updatedArr = allPhotos.map(photo => {
             if(photo.id === id) {
@@ -19,13 +20,23 @@ function ContextProvider({children}) {
             }
             return photo
         })
+        
+        setAllPhotos(updatedArr)
+    }
+    
+    function addToCart(newItem) {
+        setCartItems(prevItems => [...prevItems, newItem])
+    }
+    
+    function removeFromCart(id) {
+        setCartItems(prevItems => prevItems.filter(item => item.id !== id))
     }
     
     return (
-        <Context.Provider value={{allPhotos}}>
+        <Context.Provider value={{allPhotos, toggleFavorite, cartItems, addToCart, removeFromCart}}>
             {children}
         </Context.Provider>
     )
 }
 
-export   {ContextProvider,Context}
+export {ContextProvider, Context}
