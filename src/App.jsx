@@ -1,4 +1,4 @@
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header"
 import Cart from "./pages/Cart"
 import Photos from "./pages/Photos"
@@ -16,7 +16,7 @@ function App() {
         <Routes>
         
         <Route  path="/" element={<Photos />} />          
-        <Route path="/cart" element={ <Cart />}/>
+        <Route path="/Cart" element={ <Cart />}/>
                    
         
         </Routes>
