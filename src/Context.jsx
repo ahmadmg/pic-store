@@ -5,7 +5,9 @@ const Context = React.createContext()
 function ContextProvider({children}) {
     const [allPhotos, setAllPhotos] = useState([])
     const [cartItems, setCartItems] = useState([])
-    
+    // alternative api
+    // https://picsum.photos/v2/list?page=2&limit=100
+    // https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json
     const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
     useEffect(() => {
         fetch(url)
